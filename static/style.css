@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#custom-carousel {
+    margin-right: 30px !important;
+}
+
+.navbar {
+    min-height: 50px; /* Adjust the navbar height as needed */
+    background-color: #000 !important;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar-brand img {
+    margin-right: 10px; /* Adjust the logo margin as needed */
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem; /* Adjust the padding as needed */
+    transition: background-color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+nav {
+    background-color: #000 !important;
+    overflow: hidden;
+}
+
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #000;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px !important;
+}
+
+.centered-content {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+form {
+    display: inline-block;
+}
+
+.container {
+    max-width: 960px;
+}
+
+.card {
+    max-width: 100%;
+}
+
+.checkout-button {
+    text-align: center;
+}
+

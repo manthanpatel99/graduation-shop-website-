@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        img.background {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            filter: blur(10px);
+        }
+
+        /* Add the custom styles for the navbar */
+        nav.navbar {
+            height: 60px; /* Adjust the height as needed */
+        }
+
+        ul.navbar-nav {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        ul.navbar-nav.ml-auto li.nav-item {
+            margin-right: 15px; /* Adjust the spacing between navbar items */
+        }
+
+        ul.navbar-nav.ml-auto li.nav-item a.nav-link {
+            color: white;
+        }
+
+        ul.navbar-nav.ml-auto li.nav-item a.nav-link:hover {
+            background-color: white;
+            color: black;
+        }
+
+    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <img class="background" src="static/images/usf_background.jpeg" alt="Aleq">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <img src="static/images/usf.png" alt="Logo" width="30" height="24">
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('products') }}">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('checkout') }}">Cart</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h1>Products</h1>
+    <div class="container">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-2">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }} - ${{ product.price }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <form method="POST" action="{{ url_for('products') }}">
+                                <input type="hidden" name="product_id" value="{{ product.id }}">
+                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="container text-center mt-4">
+            <p class="display-4 font-weight-bold">{{ product_count }} products available</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

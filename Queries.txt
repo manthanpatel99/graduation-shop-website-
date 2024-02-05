@@ -1,0 +1,25 @@
+# queries.py
+
+# SQL query to insert a new product
+INSERT_NEW_PRODUCT = "INSERT INTO products (name, price) VALUES (?, ?)"
+
+# SQL query to update the price of a specific product
+UPDATE_PRODUCT_PRICE = "UPDATE products SET price = ? WHERE id = ?"
+
+# SQL query to delete a specific product
+DELETE_PRODUCT = "DELETE FROM products WHERE id = ?"
+
+# SQL query to select products within a price range
+SELECT_PRODUCTS_BY_PRICE_RANGE = "SELECT * FROM products WHERE price BETWEEN ? AND ?"
+
+# SQL query to retrieve a product by its ID
+SELECT_PRODUCT_BY_ID = "SELECT * FROM products WHERE id = ?"
+
+# SQL query to count the number of products
+COUNT_PRODUCTS = "SELECT COUNT(*) FROM products"
+
+# SQL query to find the most expensive product
+SELECT_MOST_EXPENSIVE_PRODUCT = "SELECT * FROM products WHERE price = (SELECT MAX(price) FROM products)"
+
+# SQL query to retrieve products ordered by name
+SELECT_PRODUCTS_ORDERED_BY_NAME = "SELECT * FROM products ORDER BY name"
